@@ -34,13 +34,8 @@ function Product(id, name, price, expiryDate){
 // Complete the dateDiff function
 
 const dateDiff = (date1, date2) => {
-    //time difference
     let timeDiff = Math.abs(date2.getTime() - date1.getTime());
-
-    //date difference
     let diffDays = Math.ciel(timeDiff / (1000 * 3600 * 24));
-
-    //date difference
     return diffDays;
 };
 
@@ -75,7 +70,9 @@ MagicProducts.prototype = Object.create(Product.prototype);
 // Define Rating class here
 
 class Rating {
-    const rate = "";
+    conststructor(){
+        this.rate = "";
+    }
 
     set rating(value) {
         if (value > 1 && value <= 4):
