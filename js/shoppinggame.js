@@ -1,22 +1,92 @@
 let gameComplete = false;
 // Define the three constants here
 
+const name = "unknown";
+const score = 0;
+const items = 0;
+
 // Define the player object here
+
+let player = {
+    name, 
+    score, 
+    item,
+    getCurrentScore(){
+        return this.score;
+    },
+    addPoints(points){
+        this.score = this.score + points;
+    },
+    deductPoints(points){
+        this.score = this.score - points;
+    }
+};
 
 // Define the Product class - write the Constructor function for Product class here
 
+function Product(id, name, price, expiryDate){
+    this.id = id,
+    this.name = name,
+    this.price = price,
+    this.expiryDate = expiryDate,
+};
+
 // Complete the dateDiff function
-const dateDiff = (date1, date2) => {};
+
+const dateDiff = (date1, date2) => {
+    //time difference
+    let timeDiff = Math.abs(date2.getTime() - date1.getTime());
+
+    //date difference
+    let diffDays = Math.ciel(timeDiff / (1000 * 3600 * 24));
+
+    //date difference
+    return diffDays;
+};
 
 // Here, use Object.defineProperty to create property - daysToExpire
 
+Object.defineProperty(Product.prototype, {
+    daysToExpire:{
+        get: function() {
+            return dateDiff(this.expiryDate, new Date())
+        }
+    }
+};
+
 // Add method getDetails to Product here
+
+Product.prototype.getDetails = function() {
+    return `Product Name: ${this.name} , Product Price: ${this.price}`
+}
 
 // Define the MagicProduct class here
 
+function MagicProduct(id, name, price, expiryDate, points, isBonus){
+    Products.call(this, id, name, price, expiryDate);
+    this.points = points;
+    this.isBonus = isBonus;
+}
+
 // Establish inheritance between Product() & MagicProduct() here
 
+MagicProducts.prototype = Object.create(Product.prototype);
+
 // Define Rating class here
+
+class Rating {
+    const rate = "";
+
+    set rating(value) {
+        if (value > 1 && value <= 4):
+            this.rate = "OK";
+        else if (value >= 5 && value <= 7):
+            this.rate = "GOOD";
+        else if (value > 7):
+            this.rate = "BAD";
+    }
+
+};
 
 // Complete the loadProducts function
 const loadProducts = (map, prodId) => {
