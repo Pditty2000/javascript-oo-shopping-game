@@ -334,11 +334,13 @@ function init(data) {
                 calculatePoints(product, totalBill);
                 console.log(`${player.name} you earned ${player.getCurrentScore()} points!`.bold);
                 if (player.score >= 500) {
-                    Object.defineProperty(player, "status", {value : "Master Shopper"}); // Define and set new property status in the player object here
+                    // Define and set new property status in the player object here
+                    Object.defineProperty(player, "status", {value : "Master Shopper"}); 
                     exitWon();
                 } else {
                     let iCount = ++player.items;
-                    Object.defineProperty(player, "items", {value : iCount}); // Make the Object.defineProperty() call here to set the value of items using the value of iCount
+                    // Make the Object.defineProperty() call here to set the value of items using the value of iCount
+                    Object.defineProperty(player, "items", {value : iCount}); 
                     
                     if (player.items < 10) {
                         shop(prodList, totalBill);
